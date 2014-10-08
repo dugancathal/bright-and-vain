@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- BLAH BLAH BLAH -->
+</head>
+<body>
+  <video id='vid'></video>
+  <canvas id='pic' width='640' height='480'></canvas>
+  <button type='button' id='take-pic'>Smile!</button>
+
+  <script type='text/javascript'>
+var vid, pic, button, media, takePicture;
+vid = document.getElementById('vid');
+pic = document.getElementById('pic');
+button = document.getElementById('take-pic');
+
+takePicture = function takePicture() {
+  pic.getContext('2d').drawImage(vid, 0, 0, 640, 480);
+  var data = pic.toDataURL('image/png');
+  pic.setAttribute('src', data);
+};
+
+button.onclick = takePicture;
+
+navigator.webkitGetUserMedia(
+  {video: true, audio: false},
+  function success(stream) {
+    media = stream;
+    vid.src = window.URL.createObjectURL(media);
+    vid.play();
+  },
+  function error(err) {
+    alert('Oh noes!');
+  }
+);
+  </script>
+</body>
+</html>
