@@ -63,3 +63,8 @@ navigator.webkitGetUserMedia(
 ```
 
 The full page is on [Github](https://github.com/dugancathal/bright-and-vain), feel free to clone and fiddle all you want.
+
+P.S. Keep in mind that this will only work in Chrome, you'll have to do some 
+vendor shimming if you want it to work in other browsers. Google keeps an
+[adapter](https://github.com/GoogleChrome/webrtc/blob/master/samples/web/js/adapter.js)
+available for just this purpose.
